@@ -19,17 +19,21 @@ const Register = () => {
     if (form.password !== form.confirmPassword) {
       setError('Passwords do not match');
       return;
-    }
+       }
+
     setLoading(true);
+
     try {
+
       const { confirmPassword, ...data } = form;
+
+      const { confirmPassword: _confirmPassword, ...data } = form;
+
       await register(data);
+
       navigate('/dashboard');
+
     } catch (err) {
-      setError(err.response?.data?.message || err.response?.data?.errors?.[0]?.msg || 'Registration failed');
-    } finally {
-      setLoading(false);
-    }
   };
 
   const inputClass = "w-full px-4 py-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white focus:border-transparent transition-all";
