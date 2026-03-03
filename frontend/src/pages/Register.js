@@ -22,6 +22,7 @@ const Register = () => {
     }
     setLoading(true);
     try {
+      // eslint-disable-next-line no-unused-vars
       const { confirmPassword, ...data } = form;
       await register(data);
       navigate('/dashboard');
