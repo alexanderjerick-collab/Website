@@ -22,7 +22,7 @@ const Register = () => {
     }
     setLoading(true);
     try {
-      const { confirmPassword, ...data } = form;
+      const { confirmPassword: _confirmPassword, ...data } = form;
       await register(data);
       navigate('/dashboard');
     } catch (err) {
